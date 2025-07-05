@@ -7,14 +7,12 @@ export default async function handler(req, res) {
     return;
   }
 
-  const clientSecret = process.env.CLIENT_SECRET;
-
   const data = new URLSearchParams({
-    client_id: "1389941047291023391",
-    client_secret: vAGt7yQElDG7qZAkSG7QHkKLLZXgXl-5,
+    client_id: process.env.CLIENT_ID,
+    client_secret: process.env.CLIENT_SECRET,
     grant_type: "authorization_code",
     code,
-    redirect_uri: "https://dc-weryfikacja1.vercel.app/api/callback",
+    redirect_uri: process.env.REDIRECT_URI,
     scope: "identify guilds.join bot applications.commands guilds"
   });
 
